@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace CS133_Projects
 {
@@ -6,24 +7,30 @@ namespace CS133_Projects
     {
         static void Main(string[] args)
         {
-            int[][] multiplicationTable = new int[9][];
-            for (int line = 1; line <=9; line++)
-            {
-                multiplicationTable[line - 1] = new int[line];
+            int[,] myMultiDimensionalArray = new int[10, 10];
 
-                for (int col = 1; col <=line; col++)
-                {
-                    multiplicationTable[line - 1][col - 1] = line * col;
-                }
-            }
-            for (int line = 1; line <=9; line++)
+            for (int y=0; y<10; y++)
             {
-                for (int col=1; col <= line; col++)
+                for(int x=0; x<10; x++)
                 {
-                    Console.Write((col + "*" + line + "=" + multiplicationTable[line - 1][col - 1]).PadRight(8));
+                    myMultiDimensionalArray[x, y] = x + 1 * (y + 1);
                 }
-                Console.WriteLine();
             }
+
+            for (int y = 0; y < 10; y++)
+            {
+                for (int x = 0; x < 10; x++)
+                {
+                    Console.Write(myMultiDimensionalArray[x, y] + " ");
+                }
+
+                Console.WriteLine("");
+            }
+
         }
+
+
+
     }
 }
+
